@@ -1,0 +1,74 @@
+#parse("templates/main_layout.vm")
+#@main_layout()
+
+<div class="row col-12 high-panel border border-danger pl-0 rounded">
+    <div class="row col-12 justify-content-center title-text">
+        <h5 class="card-title text-uppercase">$texts.getString('app.page.urgentOrders.literal')</h5>
+    </div>
+
+    #foreach($urgentOrder in $highOrders)
+    <div class="row col-12 justify-content-center title-text text-white">
+        <a class="badge badge-danger button-item align-top border border-muted text-light"
+           onclick="showOrderDetails('$urgentOrder.id')">
+            $texts.getString('app.page.orderNumber.literal'):
+            <span style="font-size:2em;">$urgentOrder.id</span> -
+            $texts.getString('app.page.waitingTime.literal'):
+            <span style="font-size:2em;">$urgentOrder.waitingTime $texts.getString('app.page.minutes.literal')</span>
+        </a>
+    </div>
+    #end
+</div>
+<div class="row col-12 medium-panel border border-warning justify-content-center rounded">
+    <h5 class="card-title text-uppercase">$texts.getString('app.page.priorityOrders.literal')</h5>
+    #foreach($mediumOrder in $mediumOrders)
+    <div class="row col-12 justify-content-center title-text text-dark">
+        <a class="badge badge-warning button-item align-top border border-muted text-dark">
+            $texts.getString('app.page.orderNumber.literal'):
+            <span style="font-size:2em;">$mediumOrder.id</span> -
+            $texts.getString('app.page.waitingTime.literal'):
+            <span style="font-size:2em;">$mediumOrder.waitingTime $texts.getString('app.page.minutes.literal')</span>
+        </a>
+    </div>
+    #end
+</div>
+<div class="row col-12 low-panel border border-success justify-content-center rounded">
+    <h5 class="card-title text-uppercase">$texts.getString('app.page.looseOrders.literal')</h5>
+    #foreach($lowOrder in $lowOrders)
+    <div class="row col-12 justify-content-center title-text text-dark">
+        <a class="badge badge-success button-item align-top border border-muted text-dark">
+            $texts.getString('app.page.orderNumber.literal'):
+            <span style="font-size:2em;">$lowOrder.id</span> -
+            $texts.getString('app.page.waitingTime.literal'):
+            <span style="font-size:2em;">$lowOrder.waitingTime $texts.getString('app.page.minutes.literal')</span>
+        </a>
+    </div>
+    #end
+</div>
+
+<!-- Order details Modal -->
+<div class="modal fade" id="orderDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-od" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel"></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="orderDetailsModalContent"></div>
+            <div class="modal-footer">
+                <div class="col-6 justify-content-center">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block" data-dismiss="modal">$texts.getString('app.modal.close.literal')</button>
+                </div>
+                <div class="col-6 justify-content-center">
+                    <button type="button" class="btn btn-info btn-lg btn-block btn-complete-order disabled" onclick="completeOrder()">$texts.getString('app.modal.completeOrder.literal')</button>
+                </div>
+            </div>
+            <input type="hidden" name="CompleteItem_literal" id="CompleteItem_literal" value="$texts.getString('app.modal.completeItem.literal')">
+            <input type="hidden" name="modalOrderDetailsTitle" id="modalOrderDetailsTitle" value="$texts.getString('app.modal.orderDetails.title')">
+            <input type="hidden" name="itemCompleted_literal" id="itemCompleted_literal" value="$texts.getString('app.modal.itemCompleted.literal')">
+            <input type="hidden" name="orderId" id="orderId">
+        </div>
+    </div>
+</div>
+#end

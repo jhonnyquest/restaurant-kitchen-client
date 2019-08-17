@@ -1,0 +1,52 @@
+.high-panel{
+    overflow:hidden;
+    height: 45%;
+    width:100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: #ff8080;
+    padding-right: 0px;
+}
+.medium-panel{
+    overflow:hidden;
+    height: 30%;
+    width:100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: #ffeb99;
+}
+.low-panel{
+    overflow:hidden;
+    height: 25%;
+    width:100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: #c6ffb3;
+}
+
+.main-content {
+    height: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.button-item {
+    width:100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+.title-text {
+    height: 30px;
+    margin-bottom: 0px;
+    width:100%;
+    margin-right: 0px;
+    margin-left: 0px;
+
+}
+
+.modal-od {
+  max-width: 90%;
+  margin: auto;
+}
