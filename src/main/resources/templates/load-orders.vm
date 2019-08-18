@@ -22,7 +22,8 @@
     <h5 class="card-title text-uppercase">$texts.getString('app.page.priorityOrders.literal')</h5>
     #foreach($mediumOrder in $mediumOrders)
     <div class="row col-12 justify-content-center title-text text-dark">
-        <a class="badge badge-warning button-item align-top border border-muted text-dark">
+        <a class="badge badge-warning button-item align-top border border-muted text-dark"
+           onclick="showOrderDetails('$mediumOrder.id')">
             $texts.getString('app.page.orderNumber.literal'):
             <span style="font-size:2em;">$mediumOrder.id</span> -
             $texts.getString('app.page.waitingTime.literal'):
@@ -35,7 +36,8 @@
     <h5 class="card-title text-uppercase">$texts.getString('app.page.looseOrders.literal')</h5>
     #foreach($lowOrder in $lowOrders)
     <div class="row col-12 justify-content-center title-text text-dark">
-        <a class="badge badge-success button-item align-top border border-muted text-dark">
+        <a class="badge badge-success button-item align-top border border-muted text-dark"
+           onclick="showOrderDetails('$lowOrder.id')">
             $texts.getString('app.page.orderNumber.literal'):
             <span style="font-size:2em;">$lowOrder.id</span> -
             $texts.getString('app.page.waitingTime.literal'):

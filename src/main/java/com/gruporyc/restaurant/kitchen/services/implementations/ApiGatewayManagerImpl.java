@@ -48,7 +48,10 @@ public class ApiGatewayManagerImpl implements ApiGatewayManager {
         try{
             ResponseEntity<OrderDTO[]> response = rt.processRequestGet(
                     properties.getProperty("api.restaurant.gateway.endpoint")  + "/orders/active",  null, OrderDTO[].class);
-            return Arrays.asList(Objects.requireNonNull(response.getBody()));
+            if (Objects.isNull(response.getBody())) {
+                return new ArrayList<>();
+            }
+            return Arrays.asList(response.getBody());
         } catch(HttpClientErrorException ex) {
             if(ex.getStatusCode().equals(HttpStatus.NOT_FOUND))
                 return null;
