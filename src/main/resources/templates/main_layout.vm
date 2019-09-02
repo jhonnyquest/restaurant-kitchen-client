@@ -3,7 +3,7 @@
 <head>
     #include("templates/partials/head.vm")
     <title>$texts.getString('page.title')</title>
-##    <meta http-equiv="refresh" content="30" />
+    <meta http-equiv="refresh" content="30" />
 </head>
 <body class="bg-light">
 

@@ -75,7 +75,7 @@ function getOrderItems(orderId) {
                     }
                     var card = '<div class="col-sm-3 pl-3 pb-3"> ' +
                         '<div class="card bg-light" style="width: 16rem;">' +
-                            '<img class="card-img-top" src=".../100px180/" alt="Card image cap">' +
+                            // '<img class="card-img-top" src=".../100px180/" alt="Card image cap">' +
                             '<div class="card-body pl-1 pr-1 pt-1 pb-1">' +
                                '<h5 class="card-title">' + item.name + '</h5>' +
                                '<p class="card-text">' + item.description + '</p>' +

@@ -14,7 +14,7 @@
             <span style="font-size:2em;">$urgentOrder.id</span> -
             $texts.getString('app.page.waitingTime.literal'):
             <span style="font-size:2em;">$urgentOrder.waitingTime $texts.getString('app.page.minutes.literal')</span>
-            #if($urgentOrder.table)
+            #if($urgentOrder.table && $urgentOrder.table != 'null')
                  - $texts.getString('app.page.table.literal'):
                 <span style="font-size:2em;">$urgentOrder.table</span>
             #end
