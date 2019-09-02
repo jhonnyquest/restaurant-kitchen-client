@@ -1,10 +1,12 @@
 package com.gruporyc.restaurant.kitchen.utilities;
 
 import com.gruporyc.restaurant.kitchen.enums.Language;
-import spark.Session;
 
+import javax.servlet.http.HttpSession;
 import java.util.Locale;
 import java.util.Optional;
+
+import static com.gruporyc.restaurant.kitchen.utilities.SessionUtil.Attributes.LANGUAGE;
 
 public class SessionUtil {
 
@@ -12,14 +14,8 @@ public class SessionUtil {
         String LANGUAGE = "lang";
     }
 
-    public static Language getLanguage(Session session) {
-        return Optional.ofNullable(session.attribute(Attributes.LANGUAGE))
-                .map(language -> Language.valueOf(language.toString().toUpperCase()))
-                .orElse(Language.ES);
-    }
-
-    public static Locale getLocale(Session session) {
-        return Optional.ofNullable(session.attribute("lang"))
+    public static Locale getLocale(HttpSession session) {
+        return Optional.ofNullable(session.getAttribute(LANGUAGE))
                 .map(l -> new Locale((String) l))
                 .orElse(new Locale.Builder().setLanguage(Language.ES.name()).build());
     }

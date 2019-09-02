@@ -34,7 +34,6 @@ public class ApiGatewayManagerImpl implements ApiGatewayManager {
     @Autowired
     private RestTemplateHelper rt;
 
-    @Autowired
     private Properties properties;
 
     public ApiGatewayManagerImpl () {

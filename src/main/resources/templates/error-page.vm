@@ -10,7 +10,7 @@
         #set ($errorDescription = 'error.' + $errorCode + '.description')
         <h1>$texts.getString($errorTitle)</h1>
         <h2>$texts.getString($errorSubTitle)</h2>
-        <p>$texts.getString($errorDescription)<a href="mailto:support@pappking.com" target="_top">support@pappking.com</a></p>
+        <p>$texts.getString($errorDescription)<a href="mailto:support@restaurant.com" target="_top">support@restaurant.com</a></p>
         <p><a href="#">$texts.getString('portal.redirect.message')</a></p>
     </div>
 </div>

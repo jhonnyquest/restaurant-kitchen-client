@@ -6,10 +6,11 @@ function showOrderDetails(orderId) {
 function completeItem(orderId, itemId) {
     if (itemId !== null && itemId !== "") {
         $.ajax({
-            url: '/orders/' + orderId + '/item/' + itemId,
+            url: '/orders/' + orderId + '/item/' + itemId + '/status',
             type: 'POST',
             dataType: 'json',
-            data: {status: 'COMPLETED'},
+            contentType: 'application/json',
+            data: JSON.stringify({"status": "COMPLETED"}),
             success: function (result) {
                 $('.success-item-' + itemId).remove();
                 $('.complete-item-cont-' + itemId).html(
@@ -30,7 +31,8 @@ function completeOrder() {
             url: '/orders/' + orderId + '/status',
             type: 'POST',
             dataType: 'json',
-            data: {status: 'COMPLETED'},
+            contentType: 'application/json',
+            data: JSON.stringify({"status": "COMPLETED"}),
             success: function (result) {
                 location.reload(true);
             }
@@ -57,10 +59,10 @@ function getOrderItems(orderId) {
                     if(rowControl === 0) {
                         beforeRow = '<div class="row ">';
                         afterRow = '';
-                        rowControl = 3;
                     } else if(rowControl === 3 || index === items.length - 1) {
                         beforeRow = '';
                         afterRow = '</div">';
+                        rowControl = 0;
                     }else {
                         beforeRow = '';
                         afterRow = '';
@@ -83,7 +85,7 @@ function getOrderItems(orderId) {
                            '</div>' +
                        '</div>' +
                     '</div>';
-                    rowControl = --rowControl;
+                    rowControl = ++rowControl;
                     result = result + beforeRow + card + afterRow;
                 });
             }else{
