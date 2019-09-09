@@ -32,6 +32,10 @@
             <span style="font-size:2em;">$mediumOrder.id</span> -
             $texts.getString('app.page.waitingTime.literal'):
             <span style="font-size:2em;">$mediumOrder.waitingTime $texts.getString('app.page.minutes.literal')</span>
+            #if($mediumOrder.table && $mediumOrder.table != 'null')
+                - $texts.getString('app.page.table.literal'):
+                <span style="font-size:2em;">$mediumOrder.table</span>
+            #end
         </a>
     </div>
     #end
@@ -46,6 +50,10 @@
             <span style="font-size:2em;">$lowOrder.id</span> -
             $texts.getString('app.page.waitingTime.literal'):
             <span style="font-size:2em;">$lowOrder.waitingTime $texts.getString('app.page.minutes.literal')</span>
+            #if($lowOrder.table && $lowOrder.table != 'null')
+                - $texts.getString('app.page.table.literal'):
+                <span style="font-size:2em;">$lowOrder.table</span>
+            #end
         </a>
     </div>
     #end
