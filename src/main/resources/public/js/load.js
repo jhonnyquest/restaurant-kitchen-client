@@ -67,7 +67,7 @@ function getOrderItems(orderId) {
                         beforeRow = '';
                         afterRow = '';
                     }
-                    var completedButton = '<button type="button" class="btn btn-info btn-lg btn-block success-item-' + item.id + '" onClick="completeItem(\'' + orderId + '\', \'' + item.id + '\')">' + $('#CompleteItem_literal').val() + '</button>';
+                    var completedButton = '<button type="button" class="btn btn-info btn-lg btn-block success-item-' + item.product_id + '" onClick="completeItem(\'' + orderId + '\', \'' + item.product_id + '\')">' + $('#CompleteItem_literal').val() + '</button>';
                     if(item.status === 'COMPLETED') {
                         completedButton = '<h4 class="text-success">' + $('#itemCompleted_literal').val() + '</h4>';
                     }else {
